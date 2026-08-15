@@ -74,7 +74,7 @@ const BRANCHES = [
     area: 'Tangerang, BSD, Serpong',
     address: 'Jl. Raya Puspitek Simpang Victor No.37 Tangerang Selatan',
     phone: '0811-1804-218',
-    wa: '6281118042180',
+    wa: '628111804218',
     fax: '0812-1899-2550',
     email: 'culsindonesia@gmail.com',
     hours: 'Senin–Jumat 08.00–17.00, Sabtu 08.00–13.00',
@@ -349,7 +349,7 @@ const EQUIPMENT = [
     cat: 'forklift',
     capacity: '2.500 kg',
     icon: 'ti-forklift',
-    photo: 'assets/img/equipment/forklift-electric-2.5t.png',
+    photo: 'assets/img/equipment/forklift-elektrik-2.5t.jpg',
     specs: ['Max Lift Height: 3.0 m', 'Battery: 48V Lithium-Ion', 'Operating Hours: 8 jam/charge', 'Tahun: 2022–2024'],
     desc: 'Forklift ramah lingkungan untuk indoor tanpa emisi.'
   },
