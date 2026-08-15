@@ -353,52 +353,8 @@ const EQUIPMENT = [
     specs: ['Max Lift Height: 3.0 m', 'Battery: 48V Lithium-Ion', 'Operating Hours: 8 jam/charge', 'Tahun: 2022–2024'],
     desc: 'Forklift ramah lingkungan untuk indoor tanpa emisi.'
   },
-
-
-  // {
-  //   id: 'truck-crane-25t',
-  //   name: 'Truck Crane 25 Ton',
-  //   cat: 'crane',
-  //   capacity: '25.000 kg',
-  //   icon: 'ti-crane',
-  //   specs: ['Boom: 30.7 m', 'Outreach: 22 m', 'Brand: KATO', 'Tahun: 2019–2022'],
-  //   desc: 'Crane mobile serbaguna untuk proyek konstruksi dan logistik.',
-  // },
-  // {
-  //   id: 'mobile-crane-50t',
-  //   name: 'Mobile Crane 50 Ton',
-  //   cat: 'crane',
-  //   capacity: '50.000 kg',
-  //   icon: 'ti-crane',
-  //   specs: ['Boom: 47 m', 'Max Radius: 36 m', 'Brand: Liebherr', 'Tahun: 2020–2023'],
-  //   desc: 'Untuk pengangkatan beban berat di proyek infrastruktur besar.',
-  // },
-  // {
-  //   id: 'boom-lift-16m',
-  //   name: 'Boom Lift 16 Meter',
-  //   cat: 'boom',
-  //   capacity: '250 kg',
-  //   icon: 'ti-crane',
-  //   specs: ['Height: 16 m', 'Platform: 0.76×1.83 m', 'Drive: 4WD Diesel', 'Tahun: 2021–2024'],
-  //   desc: 'Akses ketinggian di luar ruangan untuk pekerjaan konstruksi.',
-  // },
-  // {
-  //   id: 'scissor-lift-12m',
-  //   name: 'Scissor Lift 12 Meter',
-  //   cat: 'scissor',
-  //   capacity: '300 kg',
-  //   icon: 'ti-settings',
-  //   specs: ['Height: 12 m', 'Platform: 2.3×0.8 m', 'Drive: Electric', 'Tahun: 2022–2024'],
-  //   desc: 'Platform kerja stabil untuk pemasangan dan perawatan fasilitas.',
-  // },
 ];
 
-/**
- * INDUSTRIES — daftar industri yang dilayani.
- * Dipakai oleh section "Area Industri yang Dilayani" (homepage) dan
- * "Jenis Industri" (halaman cabang). Ditambahkan untuk kebutuhan SEO,
- * tidak mengubah struktur BRANCHES / EQUIPMENT yang sudah ada.
- */
 const INDUSTRIES = [
   { icon: 'ti-building-warehouse', name: 'Pergudangan & Logistik' },
   { icon: 'ti-building-factory-2', name: 'Manufaktur & Pabrik' },
