@@ -146,7 +146,7 @@ nav {
   align-items: center;
   gap: 8px;
   margin-left: auto;
-  flex-shrink: 0;
+  flex-shrink:0;
 }
 .nav-right { margin-left: 0; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .wa-btn {
@@ -1129,3 +1129,262 @@ img, svg, iframe { max-width: 100%; }
 /* Breakpoint responsive untuk section di atas sudah digabung ke dalam
    blok "RESPONSIVE" utama (lihat @media (max-width: 900px) dan
    @media (max-width: 767px) di atas) agar tidak duplikat. */
+
+/* ══════════════════════════════════════════════════════════════
+   FINAL RESPONSIVE POLISH
+   - Breadcrumb tidak lagi ikut sticky seperti <nav> utama
+   - Mobile menu selalu mulai tepat di bawah header
+   - Kartu cabang dan sektor industri stabil di semua ukuran layar
+   - Teks panjang tidak terpotong / overflow
+══════════════════════════════════════════════════════════════ */
+
+.breadcrumb-nav {
+  position: relative;
+  top: auto;
+  z-index: 10;
+  width: 100%;
+}
+.breadcrumb-nav .container { min-width: 0; }
+.breadcrumb-list { min-width: 0; }
+.breadcrumb-list li { min-width: 0; }
+.breadcrumb-list li[aria-current="page"] { overflow-wrap: anywhere; }
+
+.branches-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: stretch;
+}
+.branch-card {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.branch-img { flex: 0 0 110px; }
+.branch-info { flex: 1; min-width: 0; }
+.branch-info h4, .branch-info p { overflow-wrap: anywhere; }
+.branch-btn { margin-top: auto; }
+
+.industry-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+.industry-card {
+  min-width: 0;
+  min-height: 82px;
+  height: auto;
+  align-items: center;
+}
+.industry-card .why-icon { flex: 0 0 auto; }
+.industry-card span {
+  flex: 1 1 auto;
+  min-width: 0;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.branch-info-grid { min-width: 0; }
+.info-card, .branch-map-wrap { min-width: 0; }
+.info-header > div { min-width: 0; }
+.info-header h3, .area-pill { overflow-wrap: anywhere; }
+.info-row { min-width: 0; }
+.info-row > div { min-width: 0; }
+.info-row p { overflow-wrap: anywhere; word-break: normal; }
+
+@media (max-width: 900px) {
+ .nav-links {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    width: min(320px, 88vw);
+
+    height: auto;
+    max-height: none;
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    padding: 0.75rem 1rem 1.25rem;
+
+    background: var(--navy);
+    z-index: 9999;
+  }
+
+  .nav-links.show {
+    transform: translateX(0);
+  }
+
+  .breadcrumb-nav { position: relative; z-index: 10; }
+
+  .branch-info-grid { grid-template-columns: 1fr; }
+  .industry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .breadcrumb-nav .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .breadcrumb-list {
+    gap: 4px;
+    padding: 11px 0;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .breadcrumb-list li:not(:last-child)::after { margin-left: 4px; }
+
+  .branch-info-grid {
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .info-header {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    padding: 1.15rem 1rem;
+  }
+  .info-header i { font-size: 30px; }
+  .info-header h3 { font-size: 16px; line-height: 1.3; }
+
+  .info-body { padding: 1rem; }
+
+  .info-row {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    align-items: start;
+    gap: 10px;
+    padding-bottom: 0.85rem;
+    margin-bottom: 0.85rem;
+  }
+  .info-row > i {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 2px;
+  }
+  .info-row > div {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .info-row label { font-size: 10px; }
+  .info-row p { font-size: 13px; line-height: 1.55; }
+
+  .industry-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+  .industry-card {
+    width: 100%;
+    min-height: 68px;
+    padding: 0.9rem 1rem;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .industry-card .why-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+  }
+  .industry-card span {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .branches-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .branch-img { flex-basis: 105px; }
+  .branch-info { padding: 13px 14px; }
+  .branch-info h4 { font-size: 14px; }
+  .branch-info p { font-size: 12px; line-height: 1.5; }
+  .branch-btn {
+    margin: 0 14px 14px;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .branch-about-grid {
+    margin-top: 1.75rem;
+    gap: 1.5rem;
+  }
+  .branch-about-grid p {
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  .branch-map-wrap { min-height: 260px; }
+  .branch-map-wrap iframe { min-height: 260px; }
+
+  .hero-inner { padding: 2.5rem 1rem; }
+  .hero { min-height: auto; }
+  .hero > .hero-inner > div > p { line-height: 1.65; }
+}
+
+@media (max-width: 480px) {
+  .nav-inner {
+    padding: 0.7rem 0.85rem;
+    gap: 0.5rem;
+  }
+  .logo {
+    max-width: calc(100% - 58px);
+    min-width: 0;
+  }
+  .logo-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+  }
+  .logo-text {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+  .mobile-nav-toggle {
+    width: 40px;
+    height: 40px;
+  }
+  .nav-links {
+    width: min(300px, 90vw);
+    max-height: calc(100dvh - 72px);
+  }
+
+  .breadcrumb-list {
+    font-size: 11px;
+    gap: 3px;
+  }
+  .breadcrumb-list li:not(:last-child)::after { margin-left: 3px; }
+
+  .container {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+  .section-title { font-size: 21px; }
+  .section-sub { font-size: 14px; line-height: 1.6; }
+
+  .info-header { padding: 1rem; }
+  .info-header i { font-size: 27px; }
+  .area-pill {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    line-height: 1.35;
+  }
+
+  .industry-card {
+    min-height: 64px;
+    padding: 0.8rem 0.9rem;
+  }
+  .industry-card .why-icon {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+  .industry-card span { font-size: 12.5px; }
+}
