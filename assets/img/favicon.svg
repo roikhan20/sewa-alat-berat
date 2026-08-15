@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Latar belakang: kuning brand dengan sudut membulat -->
+  <rect x="0" y="0" width="100" height="100" rx="20" fill="#f5a623"/>
+
+  <!-- Ikon crane, warna navy brand -->
+  <g fill="none" stroke="#0a1628" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Kaki penyangga -->
+    <path d="M32 88 L44 60"/>
+    <path d="M68 88 L56 60"/>
+    <!-- Tiang utama (mast) -->
+    <path d="M46 60 V20"/>
+    <!-- Lengan jib (horizontal) -->
+    <path d="M46 24 H80"/>
+    <!-- Counter-jib pendek -->
+    <path d="M46 24 H28"/>
+    <!-- Penyangga diagonal jib -->
+    <path d="M46 24 L68 34 L80 24"/>
+    <!-- Tali kait -->
+    <path d="M74 24 V44"/>
+    <!-- Beban / kait -->
+    <rect x="69" y="44" width="10" height="8" rx="1.5" fill="#0a1628" stroke="none"/>
+  </g>
+
+  <!-- Alas -->
+  <rect x="26" y="86" width="48" height="6" rx="3" fill="#0a1628"/>
+</svg>

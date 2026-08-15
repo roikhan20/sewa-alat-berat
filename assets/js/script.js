@@ -1,0 +1,72 @@
+function kirimWhatsApp() {
+    const nama = document.getElementById("nama").value.trim();
+    const perusahaan = document.getElementById("perusahaan").value.trim();
+    const telepon = document.getElementById("telepon").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const pesan = document.getElementById("pesan").value.trim();
+
+    if (!nama || !email || !telepon || !pesan) {
+        alert("Nama, email, telepon, dan pesan wajib diisi.");
+        return;
+    }
+
+    const nomorPerusahaan = "6281218992550";
+
+    const text =
+    `Halo, saya ingin menghubungi perusahaan.
+
+    Nama: ${nama}
+    Perusahaan: ${perusahaan}
+    Telepon: ${telepon}
+    Email: ${email}
+
+    Pesan:
+    ${pesan}`;
+
+    const url =
+
+        `https://wa.me/${nomorPerusahaan}?text=${encodeURIComponent(text)}`;
+
+    window.open(url, "_blank");
+}
+  const counters = document.querySelectorAll(".hero-stat-num");
+
+const animateCounter = (counter) => {
+    const target = +counter.dataset.target;
+    const suffix = counter.dataset.suffix || "";
+    const duration = 2000;
+    const stepTime = 20;
+
+    let current = 0;
+    const increment = target / (duration / stepTime);
+
+    const timer = setInterval(() => {
+        current += increment;
+
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+
+        counter.textContent = Math.floor(current) + suffix;
+    }, stepTime);
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            counters.forEach(counter => {
+                if (!counter.classList.contains("animated")) {
+                    counter.classList.add("animated");
+                    animateCounter(counter);
+                }
+            });
+
+            observer.disconnect();
+        }
+    });
+}, {
+    threshold: 0.4
+});
+
+observer.observe(document.querySelector(".hero-stats"));

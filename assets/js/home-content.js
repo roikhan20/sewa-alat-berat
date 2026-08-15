@@ -1,0 +1,113 @@
+/**
+ * home-content.js
+ *
+ * Mengisi section SEO tambahan di index.html:
+ *   #service-areas   → Area Layanan (dari BRANCHES[].serviceAreas)
+ *   #rental-process   → Proses Penyewaan (dari RENTAL_PROCESS)
+ *   #fleet-highlights → Keunggulan Armada (dihitung dari BRANCHES/EQUIPMENT)
+ *   #safety-standards → Standar Keselamatan
+ *   #industries       → Area Industri yang Dilayani (dari INDUSTRIES)
+ *
+ * Tidak menyentuh home-renderer.js. Desain & class CSS mengikuti
+ * komponen yang sudah ada (section-tag, section-title, why-grid, dst).
+ */
+
+(function () {
+  'use strict';
+
+  document.addEventListener('DOMContentLoaded', run);
+  if (document.readyState !== 'loading') run();
+
+  function run() {
+    if (typeof BRANCHES === 'undefined') return;
+    renderServiceAreas();
+    renderRentalProcess();
+    renderFleetHighlights();
+    renderSafetyStandards();
+    renderIndustries();
+  }
+
+  function renderServiceAreas() {
+    const el = document.getElementById('service-areas-grid');
+    if (!el) return;
+    el.innerHTML = BRANCHES.map(b => `
+      <div class="why-card">
+        <div class="why-icon"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
+        <h4>${b.name}</h4>
+        <div class="tag-grid" style="margin-top:0.75rem">
+          ${(b.serviceAreas || []).map(a => `<span class="area-tag"><i class="ti ti-point-filled" aria-hidden="true"></i>${a}</span>`).join('')}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function renderRentalProcess() {
+    const el = document.getElementById('rental-process-grid');
+    if (!el || typeof RENTAL_PROCESS === 'undefined') return;
+    el.innerHTML = RENTAL_PROCESS.map(s => `
+      <div class="process-card">
+        <div class="process-num">${s.step}</div>
+        <h4>${s.title}</h4>
+        <p>${s.desc}</p>
+      </div>
+    `).join('');
+  }
+
+  function renderFleetHighlights() {
+    const el = document.getElementById('fleet-highlights-grid');
+    if (!el) return;
+
+    const totalBranches = BRANCHES.length;
+    const capacities = EQUIPMENT.map(e => parseInt(e.capacity.replace(/\D/g, ''), 10)).filter(Boolean);
+    const maxCap = capacities.length ? Math.max(...capacities) / 1000 : null;
+    const cats = new Set(EQUIPMENT.map(e => e.cat));
+    const catLabels = { forklift: 'Forklift', crane: 'Crane', boom: 'Boom Lift', scissor: 'Scissor Lift' };
+
+    const items = [
+      { icon: 'ti-building-factory-2', title: `${totalBranches} Cabang Aktif`, desc: 'Tersebar di Jabodetabek dan Bandung untuk respons lebih cepat.' },
+      { icon: 'ti-category-2', title: `${cats.size} Kategori Alat`, desc: [...cats].map(c => catLabels[c] || c).join(', ') + ' tersedia dalam satu armada.' },
+      { icon: 'ti-tools', title: 'Perawatan Berkala', desc: 'Inspeksi rutin dan preventive maintenance sebelum setiap penyewaan.' },
+    ];
+    if (maxCap) {
+      items.splice(1, 0, { icon: 'ti-weight', title: `Kapasitas hingga ${maxCap} Ton`, desc: 'Armada multi-kapasitas untuk kebutuhan ringan hingga berat.' });
+    }
+
+    el.innerHTML = items.map(it => `
+      <div class="why-card">
+        <div class="why-icon"><i class="ti ${it.icon}" aria-hidden="true"></i></div>
+        <h4>${it.title}</h4>
+        <p>${it.desc}</p>
+      </div>
+    `).join('');
+  }
+
+  function renderSafetyStandards() {
+    const el = document.getElementById('safety-standards-grid');
+    if (!el) return;
+    const items = [
+      { icon: 'ti-certificate',   title: 'Operator Bersertifikat SIO', desc: 'Seluruh operator memiliki Surat Izin Operator resmi dari Kemnaker RI.' },
+      { icon: 'ti-clipboard-check', title: 'Inspeksi Pra-Operasional', desc: 'Setiap unit melewati checklist keselamatan sebelum dikirim ke lokasi.' },
+      { icon: 'ti-vest',           title: 'APD Lengkap',               desc: 'Operator dilengkapi alat pelindung diri sesuai standar K3 proyek.' },
+      { icon: 'ti-shield-check',   title: 'Asuransi & Tanggung Jawab',  desc: 'Perlindungan asuransi alat berat tersedia untuk proyek berisiko tinggi.' },
+    ];
+    el.innerHTML = items.map(it => `
+      <div class="why-card">
+        <div class="why-icon"><i class="ti ${it.icon}" aria-hidden="true"></i></div>
+        <h4>${it.title}</h4>
+        <p>${it.desc}</p>
+      </div>
+    `).join('');
+  }
+
+  function renderIndustries() {
+    const el = document.getElementById('industries-grid');
+    if (!el || typeof INDUSTRIES === 'undefined') return;
+    el.innerHTML = INDUSTRIES.map(ind => `
+      <div class="industry-card">
+        <div class="why-icon"><i class="ti ${ind.icon}" aria-hidden="true"></i></div>
+        <span>${ind.name}</span>
+      </div>
+    `).join('');
+  }
+
+})();
