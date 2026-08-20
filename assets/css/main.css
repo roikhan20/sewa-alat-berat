@@ -114,11 +114,10 @@ nav {
 }
 .logo-icon {
   width: 36px; height: 36px;
-  background: var(--yellow);
-  border-radius: 6px;
   display: flex; align-items: center; justify-content: center;
 }
 .logo-icon i { color: var(--navy); font-size: 20px; }
+.logo-icon img { width: 36px; height: 36px; object-fit: contain; display: block; }
 .logo-text { font-size: 16px; font-weight: 700; color: #fff; }
 .logo-text span { color: var(--yellow); }
 .nav-links {
