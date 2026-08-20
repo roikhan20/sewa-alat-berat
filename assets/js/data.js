@@ -219,7 +219,7 @@ const BRANCHES = [
  * Field `id` dipakai sebagai referensi dari BRANCHES[n].equipment.
  * Isi equipment: ['all'] di cabang untuk tampilkan semua unit.
  * Field `photo` bersifat opsional; isi dengan path/URL gambar jika ingin
- * menampilkan foto di card alat berat (contoh: 'assets/img/equipment/forklift.jpg').
+ * menampilkan foto di card alat berat (contoh: 'assets/img/equipment/forklift.webp').
  */
 const EQUIPMENT = [
   {
@@ -228,7 +228,7 @@ const EQUIPMENT = [
     cat: 'crane',
     capacity: '7.000 kg',
     icon: 'ti-crane',
-    photo: 'assets/img/equipment/mobile-crane-7t.jpg',
+    photo: 'assets/img/equipment/mobile-crane-7t.webp',
     specs: ['Reach: 12 m', 'Engine: Kubota Diesel', 'Boom Length: 15 m', 'Tahun: 2020–2023'],
     desc: 'Crane ringan untuk area terbatas dan akses sulit.',
   },
@@ -238,7 +238,7 @@ const EQUIPMENT = [
     cat: 'crane',
     capacity: '25.000 kg',
     icon: 'ti-crane',
-    photo: 'assets/img/equipment/mobile-crane-25t.jpg',
+    photo: 'assets/img/equipment/mobile-crane-25t.webp',
     specs: ['Reach: 18 m', 'Engine: Mitsubishi Diesel', 'Boom Length: 22 m', 'Tahun: 2020–2023'],
     desc: 'Crane standar untuk gudang, pabrik, dan konstruksi.',
   },
@@ -248,7 +248,7 @@ const EQUIPMENT = [
     cat: 'crane',
     capacity: '45.000 kg',
     icon: 'ti-crane',
-    photo: 'assets/img/equipment/mobile-crane-45t.jpg',
+    photo: 'assets/img/equipment/mobile-crane-45t.webp',
     specs: ['Reach: 25 m', 'Engine: Cummins Diesel', 'Boom Length: 32 m', 'Tahun: 2020–2023'],
     desc: 'Crane besar untuk proyek infrastruktur dan konstruksi bertingkat.'
   },
@@ -258,7 +258,7 @@ const EQUIPMENT = [
     cat: 'crane',
     capacity: '50.000 kg',
     icon: 'ti-crane',
-    photo: 'assets/img/equipment/mobile-crane-50t.jpg',
+    photo: 'assets/img/equipment/mobile-crane-50t.webp',
     specs: ['Reach: 28 m', 'Engine: Cummins Diesel', 'Boom Length: 36 m', 'Tahun: 2020–2023'],
     desc: 'Crane ultra berat untuk konstruksi gedung dan jembatan besar.'
   },
@@ -268,7 +268,7 @@ const EQUIPMENT = [
     cat: 'crane',
     capacity: '55.000 kg',
     icon: 'ti-crane',
-    photo: 'assets/img/equipment/mobile-crane-55ton.jpg',
+    photo: 'assets/img/equipment/mobile-crane-55ton.webp',
     specs: ['Reach: 30 m', 'Engine: Cummins Diesel Turbo', 'Boom Length: 40 m', 'Tahun: 2020–2023'],
     desc: 'Crane kelas tertinggi untuk megaproject infrastruktur premium.'
   },
@@ -279,7 +279,7 @@ const EQUIPMENT = [
     cat: 'crane',
     capacity: '3.000 kg',
     icon: 'ti-crane',
-    photo: 'assets/img/equipment/truck-crane-3t.jpg',
+    photo: 'assets/img/equipment/truck-crane-3t.webp',
     specs: ['Jib Length: 8 m', 'Engine: Hino Diesel', 'Boom Angle: 0–72°', 'Tahun: 2020–2023'],
     desc: 'Truck crane kompak untuk pengiriman cepat dan lokasi sulit.'
   },
@@ -289,7 +289,7 @@ const EQUIPMENT = [
     cat: 'crane',
     capacity: '5.000 kg',
     icon: 'ti-crane',
-    photo: 'assets/img/equipment/truck-crane-5t.jpg',
+    photo: 'assets/img/equipment/truck-crane-5t.webp',
     specs: ['Jib Length: 10 m', 'Engine: Isuzu Diesel', 'Boom Angle: 0–75°', 'Tahun: 2020–2023'],
     desc: 'Truck crane untuk pengiriman dan instalasi equipment.'
   },
@@ -299,7 +299,7 @@ const EQUIPMENT = [
     cat: 'forklift',
     capacity: '3.000 kg',
     icon: 'ti-forklift',
-    photo: 'assets/img/equipment/forklift-diesel-3t.jpg',
+    photo: 'assets/img/equipment/forklift-diesel-3t.webp',
     specs: ['Max Lift Height: 3.0 m', 'Engine: Kubota Diesel 2-Cylinder', 'Tires: Pneumatic 6.50-10', 'Tahun: 2020–2023'],
     desc: 'Forklift entry-level untuk pergudangan ringan dan distribusi.'
   },
@@ -309,7 +309,7 @@ const EQUIPMENT = [
     cat: 'forklift',
     capacity: '5.000 kg',
     icon: 'ti-forklift',
-    photo: 'assets/img/equipment/forklift-diesel-5t.jpg',
+    photo: 'assets/img/equipment/forklift-diesel-5t.webp',
     specs: ['Max Lift Height: 3.3 m', 'Engine: Mitsubishi Diesel 4-Cylinder', 'Tires: Pneumatic 28×9-15', 'Tahun: 2021–2023'],
     desc: 'Forklift industri untuk pabrik dan logistik menengah.'
   },
@@ -319,7 +319,7 @@ const EQUIPMENT = [
     cat: 'forklift',
     capacity: '7.000 kg',
     icon: 'ti-forklift',
-    photo: 'assets/img/equipment/forklift-diesel-7t.jpg',
+    photo: 'assets/img/equipment/forklift-diesel-7t.webp',
     specs: ['Max Lift Height: 3.0 m', 'Engine: Kubota Diesel 4-Cylinder', 'Tires: Pneumatic 28×9-15', 'Tahun: 2020–2023'],
     desc: 'Forklift heavy-duty untuk warehouse ekstrem dan yard outdoor.'
   },
@@ -329,7 +329,7 @@ const EQUIPMENT = [
     cat: 'forklift',
     capacity: '10.000 kg',
     icon: 'ti-forklift',
-    photo: 'assets/img/equipment/forklift-diesel-10t.jpg',
+    photo: 'assets/img/equipment/forklift-diesel-10t.webp',
     specs: ['Max Lift Height: 3.0 m', 'Engine: Kubota Diesel 4-Cylinder Turbo', 'Tires: Pneumatic 28×9-15', 'Tahun: 2020–2023'],
     desc: 'Forklift ultra berat untuk pelabuhan dan logistik volume tinggi.'
   },
@@ -339,7 +339,7 @@ const EQUIPMENT = [
     cat: 'forklift',
     capacity: '15.000 kg',
     icon: 'ti-forklift',
-    photo: 'assets/img/equipment/forklift-diesel-15t.jpg',
+    photo: 'assets/img/equipment/forklift-diesel-15t.webp',
     specs: ['Max Lift Height: 3.0 m', 'Engine: Kubota Diesel 4-Cylinder Turbo-Intercooler', 'Tires: Pneumatic 28×9-15 Double', 'Tahun: 2020–2023'],
     desc: 'Forklift kapasitas tertinggi untuk handling material premium.'
   },
@@ -349,7 +349,7 @@ const EQUIPMENT = [
     cat: 'forklift',
     capacity: '2.500 kg',
     icon: 'ti-forklift',
-    photo: 'assets/img/equipment/forklift-elektrik-2.5t.jpg',
+    photo: 'assets/img/equipment/forklift-elektrik-2.5t.webp',
     specs: ['Max Lift Height: 3.0 m', 'Battery: 48V Lithium-Ion', 'Operating Hours: 8 jam/charge', 'Tahun: 2022–2024'],
     desc: 'Forklift ramah lingkungan untuk indoor tanpa emisi.'
   },
